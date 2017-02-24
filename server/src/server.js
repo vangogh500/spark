@@ -1,21 +1,23 @@
 var express = require('express')
 var app = express()
 var mongoose = require('mongoose')
+var bodyParser = require('body-parser')
+var credentials = require('./credentials.js')
 
-mongoose.connect('mongodb://kmatsuda:namumyo@ds157529.mlab.com:57529/kai_test')
+var nodemailer = require('nodemailer')
+var smtpTransport = require("nodemailer-smtp-transport")
+var transporter = nodemailer.createTransport(smtpTransport({
+    host : credentials.email.host,
+    secureConnection : true,
+    port: 587,
+    auth : credentials.email.auth
+}));
 
-var User = require('./models/user.js')
+mongoose.connect(credentials.mongodb.url)
 
-var test = new User({
-  profile: {
-    firstName: "Kevin",
-    lastName: "Doan"
-  }
-})
+app.use(bodyParser.json())
+require('./routes.js')(app)
 
-test.save(function(err) {
-  if(!err) console.log("success")
-})
 
 app.listen(3000, function() {
   console.log("server is running on port 3000")
