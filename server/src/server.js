@@ -10,13 +10,16 @@ var transporter = nodemailer.createTransport(smtpTransport({
     host : credentials.email.host,
     secureConnection : true,
     port: 587,
-    auth : credentials.email.auth
+    auth : {
+      user : credentials.email.auth.user,
+      pass : credentials.email.auth.pass
+    }
 }));
 
 mongoose.connect(credentials.mongodb.url)
 
 app.use(bodyParser.json())
-require('./routes.js')(app)
+require('./routes.js')(app, transporter)
 
 
 app.listen(3000, function() {
