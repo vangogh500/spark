@@ -8,5 +8,9 @@ module.exports = {
       user : "uniloltemp@gmail.com",
       pass : "umass2016"
     }
+  },
+  facebook: {
+    appId: "929043527232794",
+    appSecret: "a878dc49dca2546f378b3650a7c8cdb5"
   }
 }

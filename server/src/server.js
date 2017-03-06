@@ -18,6 +18,9 @@ var transporter = nodemailer.createTransport(smtpTransport({
 
 mongoose.connect(credentials.mongodb.url)
 
+
+var facebook = require('./util/facebook.js')
+
 app.use(bodyParser.json())
 require('./routes.js')(app, transporter)
 
