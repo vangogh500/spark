@@ -12,5 +12,8 @@ module.exports = {
   facebook: {
     appId: "929043527232794",
     appSecret: "a878dc49dca2546f378b3650a7c8cdb5"
+  },
+  jwt: {
+    secret: "testingclientspark"
   }
 }
