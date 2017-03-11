@@ -91,7 +91,8 @@ module.exports = function(app, transporter) {
               political_views: update.political_views,
               ethnicity: update.ethnicity,
               nationality: update.nationality,
-              bio: update.bio
+              bio: update.bio,
+              interests: update.interests
             }
             found.profile = toUpdate
             found.save(function(err) {

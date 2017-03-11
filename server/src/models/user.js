@@ -12,15 +12,16 @@ var UserSchema = mongoose.Schema({
       country: String
     },
     birthday: { type: Date },
-    gender: { type: String, enum: ['male', 'female', 'transgender', 'agender']},
+    gender: { type: String, enum: ['male', 'female', 'transgender', 'agender', '']},
     languages: [String],
-    relationship_status: { type: String, enum: ['single', 'in a relationship', 'engaged', 'married'] },
-    interested_in: {type: String, enum: ['men', 'women', 'men and women']},
+    relationship_status: { type: String, enum: ['single', 'in a relationship', 'engaged', 'married', ''] },
+    interested_in: {type: String, enum: ['men', 'women', 'men and women', '']},
     religion: String,
     political_views: String,
     ethnicity: String,
     nationality: String,
-    bio: String
+    bio: String,
+    interests: [String]
   },
   album: {
     primary: String,
