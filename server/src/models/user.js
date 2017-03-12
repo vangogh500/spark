@@ -25,8 +25,7 @@ var UserSchema = mongoose.Schema({
   },
   album: {
     primary: String,
-    secondary: String,
-    ternary: String
+    gallery: [String]
   }
 })
 
@@ -38,6 +37,9 @@ UserSchema.path('profile.name.first').validate(function(str) {
 })
 UserSchema.path('profile.name.last').validate(function(str) {
   return str.length < 10;
+})
+UserSchema.path('album.gallery').validate(function(arr) {
+  return arr.length < 5;
 })
 
 module.exports = mongoose.model('User', UserSchema)

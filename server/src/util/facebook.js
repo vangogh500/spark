@@ -66,6 +66,10 @@ exports.verifyClientToken = function(clientToken, cb) {
 						last: objData.last_name
 					},
 					gender: objData.gender
+				},
+				album: {
+					primary: "",
+					album: []
 				}
 			})
 			newUser.save(function(err) {
